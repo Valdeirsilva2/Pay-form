@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lory.js/2.2.0/lory.min.js"></script>
+</head>
+
+
+<body>
+    <div class="conteiner-carousel">
+
+        <div class="slider js_slider">
+            <div class="frame js_frame">
+                <div class="slides js_slides">
+                    <img class="js_slide" src="prancheta-1.png" alt="">
+                    <img class="js_slide" 0 src="prancheta-2.png" alt="">
+
+
+                </div>
+            </div>
+            <ul class="slider_navigation_dots"></ul>
+        </div>
+
+
+
+    </div>
+
+    <div class="form-cadastro">
+        <div class="steps">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
+        <form id="regForm" method="POST" action="http://clientes.conferenciacorp.com.br/webcorp">
+
+
+            <!-- One "tab" for each step in the form: -->
+            <div class="tab">
+                <div class="text-welcome">
+                    <div class="logo">
+                        <img src="logo.png" alt="Logo ConferenciaCorp">
+                    </div>
+                    <p>Bem-vindo ao cadastro para teste do WebCorp, vamos nos conhecer melhor?</p>
+                </div>
+                <fieldset class="material">
+                    <input type="text" id="name" placeholder="Qual seu nome?" oninput="this.className = ''"
+                        autocomplete="off">
+                    <hr>
+                    <label>Nome</label>
+                </fieldset>
+                <fieldset class="material">
+                    <input type="text" id="email" placeholder="Seu e-mail corporativo?" oninput="this.className = ''"
+                        autocomplete="off">
+                    <hr>
+                    <label>E-mail corporativo</label>
+                </fieldset>
+                <fieldset class="material">
+                    <input type="tel" id="phone" placeholder="Seu Telefone?" oninput="this.className = ''"
+                        autocomplete=" off">
+                    <hr>
+                    <label>Telefone</label>
+                </fieldset>
+            </div>
+            <div class="tab">
+                <div class="text-welcome">
+                    <div class="logo">
+                        <img src="logo.png" alt="Logo ConferenciaCorp">
+                    </div>
+                    <p>Vamos criar seu usuário e senha para acessar a WebCorp?</p>
+                </div>
+
+                <fieldset class="material">
+                    <input type="text" id="login" placeholder="Informe um nome de usuário" oninput="this.className = ''"
+                        autocomplete="off">
+                    <hr>
+                    <label>Usuário</label>
+                </fieldset>
+                <fieldset class="material">
+                    <input type="text" id="password" placeholder="Crie sua senha" oninput="this.className = ''"
+                        autocomplete="off">
+                    <hr>
+                    <label>Senha</label>
+                </fieldset>
+                <fieldset class="material">
+                    <input type="text" id="confirmpass" placeholder="Reedigite sua senha" oninput="this.className = ''"
+                        autocomplete=" off">
+                    <hr>
+                    <label>Confirmar senha</label>
+                </fieldset>
+            </div>
+            <div class="tab">
+                <div class="text-welcome">
+                    <div class="sucess-logo">
+                        <img src="ilustracao-login.svg" alt="Logo ConferenciaCorp">
+                    </div>
+                    <p>Seu cadastro foi criado com sucesso!</p>
+                    <p class="created-acount">
+                        Aproveite para reunir online com mais 3 participantes, em reuniões de 30 minutos por dia,
+                        durante 3
+                        dias!
+                    </p>
+                </div>
+            </div>
+            <div class="fields">
+                <div class="g-recaptcha" data-sitekey="6LexhBcTAAAAANWNrnuyY8O9vdDkBr8PwdRrv19y"
+                    data-callback="onReCaptchaSuccess"></div>
+                <span id="recaptcha"></span>
+            </div>
+            <div class="btn">
+                <a type="button" id="prevBtn" onclick="nextPrev(-1)">
+                    <img src="back.svg" alt="Logo" /> <span class="txt-back">Voltar</span>
+                </a>
+                <button class="btn-return" type="button" id="nextBtn" onclick="nextPrev(1)" {% if isProduction == 1 %}
+                    onClick="ga('send', 'event', { eventCategory: 'webcorp-cadastro-autoteste', eventAction: 'clique', eventLabel: 'lead'});"
+                    {% endif %}>
+                    Proximo</button>
+            </div>
+        </form>
+        <p class="login">Já possui uma conta? <a href="">Efetuar Login.</a></p>
+    </div>
+</body>
+<script src="js/webcorp.js"></script>
+<script src="js/carrousel.js"></script>
+
+</html>
