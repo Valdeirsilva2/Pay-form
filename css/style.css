@@ -1,14 +1,10 @@
-ris    * {
+  * {
         box-sizing: border-box;
     }
     html{
-        height: 100vh;
-        width: 100%;
         font-family: 'Montserrat' ;
     }
     body {
-        height: 100%;
-        width: 100%;
         margin: 0;
         padding: 0;
         display: flex;
@@ -27,26 +23,89 @@ ris    * {
     /* Hide all steps by default: */
     .tab {
         display: none;
+        
     }
-    .text-welcome{
+    .forms-responsive {
+        display: flex;
+        flex-wrap: wrap;
+        
+
+    }
+    .title-form{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .text-welcome p{
+    .title-form p{
         text-align: center;
         font-size: 14px;
         color: #626773;
         width: 200px;
         line-height: 1.5;
     }
-    .text-welcome .created-acount {
+    .title-form .created-acount {
         text-align: center;
         font-size: 14px;
         color: #626773;
         width: 250px;
         line-height: 1.5;
     }
+    .term {
+        margin: 25px 10px 0
+
+    }
+    .styled-checkbox {
+        position: absolute;
+        opacity: 0;
+      }
+      .styled-checkbox + label {
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .styled-checkbox + label:before {
+        content: '';
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: text-top;
+        width: 30px;
+        height: 20px;
+        border: solid 1px #000;
+        border-radius: 2px;
+      }
+      /* .styled-checkbox:hover + label:before {
+        background: #266EB5;
+      }
+      .styled-checkbox:focus + label:before {
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+      } */
+      .styled-checkbox:checked + label:before {
+        background: #266EB5;
+      }
+      .styled-checkbox:disabled + label {
+        color: #b8b8b8;
+        cursor: auto;
+      }
+      .styled-checkbox:disabled + label:before {
+        box-shadow: none;
+        background: #ddd;
+      }
+      .styled-checkbox:checked + label:after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        background: white;
+        width: 2px;
+        height: 2px;
+        box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+      }
+
     .btn{
         display: flex;
         justify-content: center;
@@ -73,8 +132,8 @@ ris    * {
     
     #prevBtn {
         position: absolute;
-        top: 40px;
-        left: 40px;
+        top: 30px;
+        left: 30px;
         
     }
     #prevBtn .txt-back{
@@ -82,11 +141,12 @@ ris    * {
         margin: 0 10px;
     }
     #prevBtn img{
-        width:30px;
-        height:30px;
+        width:20px;
+        height:20px;
     }
     .form-cadastro {
-        height:100%;
+        min-height:100vh;
+        width: 100%;
         width: 100%;
         background: #F5F5F5;
         position: relative;
@@ -137,23 +197,26 @@ ris    * {
     }
     .logo img {
         object-fit: contain;
-    }
-    .sucess-logo{
-    }
-    
-    
+    }   
     .material {
         position: relative;
         padding: 0;
+        width: 100%;        
         border: none;
         overflow: visible;
+    }
+    .input-small {
+        width: 27%;
+    }
+    .input-medium {
+        width: 70%;
     }
     .material input {
         box-sizing: border-box;
         width: 100%;
         padding: 20px 10px;
         border: none;
-        border-radius: 0;
+        border-radius: 5px;
         box-shadow: none;
         color: #266EB5;
         border-bottom: 1px solid #ddd;
@@ -213,25 +276,21 @@ ris    * {
         /* -webkit-transform: scale(0.6); */
         transform: scale(0.6);
     }
-    .conteiner-carousel {
+    .resume {
         display: none;
         
     }
-    .login{
+    .copyright{
         font-size: 14px;
         color: #626773;
-        position: relative;
-        top: 45px;
+        margin-top: 50px;
+        width: 90%;
 
     }
-    .login a{
-        text-decoration: none;
-        color: #d6060b;
-    }
-
+}
     /* Screen Desktop */
     @media screen and (min-width:1024px){
-        .conteiner-carousel{
+        .resume{
             display: flex;
             width: 50%;
             position: relative;
@@ -254,7 +313,7 @@ ris    * {
             display: initial;
             margin: 0 10px;
         }
-        .text-welcome p{
+        .title-form p{
             min-width: 350px;
         }
         .sucess-logo{
@@ -341,7 +400,7 @@ ris    * {
             background-color: #41ABE5;
             box-shadow: inset 2px 0px 2px -2px #333;
         }
-        .login{
+        .copyright{
             font-size: 14px;
             color: #626773;
             top: 100px;    

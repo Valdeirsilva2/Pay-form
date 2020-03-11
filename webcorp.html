@@ -7,24 +7,14 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lory.js/2.2.0/lory.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lory.js/2.2.0/lory.min.js"></script> -->
 </head>
 
 
 <body>
-    <div class="conteiner-carousel">
+    <div class="resume">
 
-        <div class="slider js_slider">
-            <div class="frame js_frame">
-                <div class="slides js_slides">
-                    <img class="js_slide" src="prancheta-1.png" alt="">
-                    <img class="js_slide" 0 src="prancheta-2.png" alt="">
-
-
-                </div>
-            </div>
-            <ul class="slider_navigation_dots"></ul>
-        </div>
+    </div>
 
 
 
@@ -39,13 +29,12 @@
         <form id="regForm" method="POST" action="http://clientes.conferenciacorp.com.br/webcorp">
 
 
-            <!-- One "tab" for each step in the form: -->
-            <div class="tab">
-                <div class="text-welcome">
+            <!-- <div class="tab">
+                <div class="title-form">
                     <div class="logo">
                         <img src="logo.png" alt="Logo ConferenciaCorp">
                     </div>
-                    <p>Bem-vindo ao cadastro para teste do WebCorp, vamos nos conhecer melhor?</p>
+                    <p>Vamos iniciar sua compra na WebCorp?</p>
                 </div>
                 <fieldset class="material">
                     <input type="text" id="name" placeholder="Qual seu nome?" oninput="this.className = ''"
@@ -60,14 +49,24 @@
                     <label>E-mail corporativo</label>
                 </fieldset>
                 <fieldset class="material">
+                    <input type="tel" id="phone" placeholder="CPF ou CNPJ?" oninput="this.className = ''"
+                        autocomplete=" off">
+                    <hr>
+                    <label>CPF/CNPJ</label>
+                </fieldset>
+                <fieldset class="material">
                     <input type="tel" id="phone" placeholder="Seu Telefone?" oninput="this.className = ''"
                         autocomplete=" off">
                     <hr>
                     <label>Telefone</label>
                 </fieldset>
+                <div class="term">
+                    <input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2">
+                    <label for="styled-checkbox-2">Li e concordo com os Termos de Uso da WebCorp</label>
+                </div>
             </div>
             <div class="tab">
-                <div class="text-welcome">
+                <div class="title-form">
                     <div class="logo">
                         <img src="logo.png" alt="Logo ConferenciaCorp">
                     </div>
@@ -75,13 +74,13 @@
                 </div>
 
                 <fieldset class="material">
-                    <input type="text" id="login" placeholder="Informe um nome de usuário" oninput="this.className = ''"
+                    <input type="text" id="login" placeholder="Crie o seu usuário" oninput="this.className = ''"
                         autocomplete="off">
                     <hr>
                     <label>Usuário</label>
                 </fieldset>
                 <fieldset class="material">
-                    <input type="text" id="password" placeholder="Crie sua senha" oninput="this.className = ''"
+                    <input type="text" id="password" placeholder="Crie a sua senha" oninput="this.className = ''"
                         autocomplete="off">
                     <hr>
                     <label>Senha</label>
@@ -92,9 +91,64 @@
                     <hr>
                     <label>Confirmar senha</label>
                 </fieldset>
+            </div> -->
+            <div class="tab">
+                <div class="title-form">
+                    <div class="logo">
+                        <img src="logo.png" alt="Logo ConferenciaCorp">
+                    </div>
+                    <p>Nos informe seu endereço de cobrança para continuarmos com a compra?</p>
+                </div>
+                <div class="forms-responsive">
+
+                    <fieldset class="material">
+                        <input type="text" id="login" placeholder="Qual seu CEP?" oninput="this.className = ''"
+                            autocomplete="off">
+                        <hr>
+                        <label>CEP</label>
+                    </fieldset>
+                    <fieldset class="material">
+                        <input type="text" id="text" placeholder="Rua" oninput="this.className = ''" autocomplete="off">
+                        <hr>
+                        <label>Rua</label>
+                    </fieldset>
+                    <fieldset class="material input-small">
+                        <input type="text" id="confirmpass" placeholder="Número" oninput="this.className = ''"
+                            autocomplete=" off">
+                        <hr>
+                        <label>Número</label>
+
+                    </fieldset>
+                    <fieldset class="material input-medium">
+                        <input type="text" id="confirmpass" placeholder="Complemento" oninput="this.className = ''"
+                            autocomplete=" off">
+                        <hr>
+                        <label>Complemento</label>
+
+                    </fieldset>
+                    <fieldset class="material">
+                        <input type="text" id="text" placeholder="Bairro" oninput="this.className = ''"
+                            autocomplete="off">
+                        <hr>
+                        <label>Bairro</label>
+                    </fieldset>
+                    <fieldset class="material input-medium">
+                        <input type="text" id="text" placeholder="Cidade" oninput="this.className = ''"
+                            autocomplete="off">
+                        <hr>
+                        <label>Cidade</label>
+                    </fieldset>
+                    <fieldset class="material input-small">
+                        <input type="text" id="confirmpass" placeholder="Estado" oninput="this.className = ''"
+                            autocomplete=" off">
+                        <hr>
+                        <label>Estado</label>
+
+                    </fieldset>
+                </div>
             </div>
             <div class="tab">
-                <div class="text-welcome">
+                <div class="title-form">
                     <div class="sucess-logo">
                         <img src="ilustracao-login.svg" alt="Logo ConferenciaCorp">
                     </div>
@@ -106,11 +160,7 @@
                     </p>
                 </div>
             </div>
-            <div class="fields">
-                <div class="g-recaptcha" data-sitekey="6LexhBcTAAAAANWNrnuyY8O9vdDkBr8PwdRrv19y"
-                    data-callback="onReCaptchaSuccess"></div>
-                <span id="recaptcha"></span>
-            </div>
+
             <div class="btn">
                 <a type="button" id="prevBtn" onclick="nextPrev(-1)">
                     <img src="back.svg" alt="Logo" /> <span class="txt-back">Voltar</span>
@@ -121,7 +171,7 @@
                     Proximo</button>
             </div>
         </form>
-        <p class="login">Já possui uma conta? <a href="">Efetuar Login.</a></p>
+        <p class="copyright">©Copyright 2020 ConferenciaCorp. Todos os direitos reservados.</p>
     </div>
 </body>
 <script src="js/webcorp.js"></script>
