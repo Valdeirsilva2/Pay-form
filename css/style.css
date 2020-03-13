@@ -40,7 +40,8 @@
         text-align: center;
         font-size: 14px;
         color: #626773;
-        width: 200px;
+        width: 90%;
+        font-weight: 600;
         line-height: 1.5;
     }
     .title-form .created-acount {
@@ -111,8 +112,6 @@
         justify-content: center;
         margin-top: 50px;
     }
-    
-    
     .btn button {
         background-color: #266EB5;
         color: #fdfdfd;
@@ -121,7 +120,7 @@
         width: 134px;
         height: 39px;
         font-size: 17px;
-        font-family: Raleway;
+        font-family: 'Montserrat' ;
         cursor: pointer;
         border-radius: 5px;
     }
@@ -184,7 +183,7 @@
     }
     
     form {        
-        font-family: Raleway;        
+        font-family: 'Montserrat';        
         width: 90%;
         margin-top: 25px;
         max-width: 280px;
@@ -228,9 +227,19 @@
         -webkit-transition: color 300ms ease;
         transition: color 300ms ease;
     }
-    .material input:not(:focus)::-webkit-input-placeholder {
+    input:focus::placeholder {
         color: transparent;
+      }
+    .material input:not(:placeholder-shown) ~ label{
+        opacity: 1;
     }
+    .material input:focus ~ label{
+        opacity: 1 ;
+    }
+    .material label {
+        opacity: 0;
+    }
+
     .material hr {
         content: "";
         display: block;
@@ -285,9 +294,35 @@
         color: #626773;
         margin-top: 50px;
         width: 90%;
+    }
+    .form-container.active {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+    .resumo ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        margin: 25px 0;
+        flex-direction: column;
+    }
+    .resumo li {
+        display: flex;
+        justify-content: space-between;
 
     }
-}
+    .resumo li span {
+       color: #266EB5;
+       font-size: 14px;
+       font-weight: 600;
+    }
+    .resumo li p {
+        color: #95989F;
+        font-size: 12px;
+    }
+    
     /* Screen Desktop */
     @media screen and (min-width:1024px){
         .resume{

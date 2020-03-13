@@ -7,15 +7,11 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lory.js/2.2.0/lory.min.js"></script> -->
 </head>
 
 
 <body>
     <div class="resume">
-
-    </div>
-
 
 
     </div>
@@ -26,7 +22,8 @@
             <span class="step"></span>
             <span class="step"></span>
         </div>
-        <form id="regForm" method="POST" action="http://clientes.conferenciacorp.com.br/webcorp">
+
+        <form id="regForm" method="POST" action="http://uol.com.br">
 
 
             <!-- <div class="tab">
@@ -49,7 +46,7 @@
                     <label>E-mail corporativo</label>
                 </fieldset>
                 <fieldset class="material">
-                    <input type="tel" id="phone" placeholder="CPF ou CNPJ?" oninput="this.className = ''"
+                    <input type="tel" id="cnpj" placeholder="CPF ou CNPJ?" oninput="this.className = ''"
                         autocomplete=" off">
                     <hr>
                     <label>CPF/CNPJ</label>
@@ -91,7 +88,7 @@
                     <hr>
                     <label>Confirmar senha</label>
                 </fieldset>
-            </div> -->
+            </div>
             <div class="tab">
                 <div class="title-form">
                     <div class="logo">
@@ -146,35 +143,94 @@
 
                     </fieldset>
                 </div>
+            </div> -->
+            <div class="tab">
+                <div class="resumo">
+                    <div class="logo">
+                        <img src="logo.png" alt="Logo ConferenciaCorp">
+                    </div>
+                    <p>Para finalizar sua compra nos informe os dados do seu cartão</p>
+
+                    <ul>
+                        <li>
+                            <span>Resumo da compra</span>
+                        </li>
+                        <li>
+                            <div>
+                                <p>Data da Compra</p>
+                                <span> 12 de Março de 2020</span>
+                            </div>
+
+                        </li>
+                        <li>
+                            <div>
+                                <p>Plano Contratado</p>
+                                <span>Standart</span>
+                            </div>
+
+                            <div>
+                                <p>Preço Mensal</p>
+                                <span>R$ 44,90</span>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-wrapper"></div>
+
+                <div class="form-container active">
+
+                    <fieldset class="material">
+                        <input placeholder="Número " type="tel" name="number">
+                        <hr>
+                        <label>N°</label>
+                    </fieldset>
+                    <fieldset class="material">
+                        <input placeholder="Nome (Igual do Cartão)" type="text" name="name">
+                        <hr>
+                        <label>Nome</label>
+                    </fieldset>
+                    <fieldset class="material input-medium">
+                        <input placeholder="Validade" type="tel" name="expiry">
+                        <hr>
+                        <label>MM/YY</label>
+                    </fieldset>
+                    <fieldset class="material input-small">
+                        <input placeholder="CVV" type="number" name="cvc">
+                        <hr>
+                        <label>CVV</label>
+                    </fieldset>
+                </div>
+
             </div>
             <div class="tab">
                 <div class="title-form">
                     <div class="sucess-logo">
                         <img src="ilustracao-login.svg" alt="Logo ConferenciaCorp">
                     </div>
-                    <p>Seu cadastro foi criado com sucesso!</p>
-                    <p class="created-acount">
-                        Aproveite para reunir online com mais 3 participantes, em reuniões de 30 minutos por dia,
-                        durante 3
-                        dias!
-                    </p>
+                    <p>Sua compra foi realizada com sucesso!</p>
+                    <span></span>
                 </div>
             </div>
-
             <div class="btn">
                 <a type="button" id="prevBtn" onclick="nextPrev(-1)">
                     <img src="back.svg" alt="Logo" /> <span class="txt-back">Voltar</span>
                 </a>
-                <button class="btn-return" type="button" id="nextBtn" onclick="nextPrev(1)" {% if isProduction == 1 %}
-                    onClick="ga('send', 'event', { eventCategory: 'webcorp-cadastro-autoteste', eventAction: 'clique', eventLabel: 'lead'});"
-                    {% endif %}>
+                <button class="btn-return" type="button" id="nextBtn" onclick="nextPrev(1)">
                     Proximo</button>
             </div>
         </form>
         <p class="copyright">©Copyright 2020 ConferenciaCorp. Todos os direitos reservados.</p>
     </div>
 </body>
+<script src="js/card.js"></script>
+<script>
+    new Card({
+        form: document.querySelector('form'),
+        container: '.card-wrapper'
+    });
+</script>
 <script src="js/webcorp.js"></script>
-<script src="js/carrousel.js"></script>
+
 
 </html>

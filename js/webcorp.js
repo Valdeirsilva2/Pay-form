@@ -13,12 +13,12 @@ function showTab(n) {
     } else {
         document.getElementById("prevBtn").style.display = "inline";
     }
-    if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "Ir para o site";
+    // if (n == (x.length - 3)) {
+    //     document.getElementById("nextBtn").innerHTML = "Ir para o site";
 
-    } else {
-        document.getElementById("nextBtn").innerHTML = "Proximo";
-    }
+    // } else {
+    //     document.getElementById("nextBtn").innerHTML = "Proximo";
+    // }
     //... and run a function that will display the correct step indicator:
     fixStepIndicator(n)
 }
@@ -77,10 +77,7 @@ function fixStepIndicator(n) {
 //Para produção
 
 
-$("document").ready(function () {
 
-    $("#phone").mask("(00) 00000-0000");
-});
 $("form").on("submit", function (event) {
     event.preventDefault();
 
