@@ -13,13 +13,7 @@ function showTab(n) {
     } else {
         document.getElementById("prevBtn").style.display = "inline";
     }
-    // if (n == (x.length - 3)) {
-    //     document.getElementById("nextBtn").innerHTML = "Ir para o site";
 
-    // } else {
-    //     document.getElementById("nextBtn").innerHTML = "Proximo";
-    // }
-    //... and run a function that will display the correct step indicator:
     fixStepIndicator(n)
 }
 
@@ -78,44 +72,7 @@ function fixStepIndicator(n) {
 
 
 
-$("form").on("submit", function (event) {
-    event.preventDefault();
 
-    if (!validaForm()) {
-
-        return false;
-    }
-
-    $.ajax({
-        url: "/webcorp",
-        type: 'POST',
-        dataType: 'JSON',
-        data: {
-            name: $("#name").val(),
-            email: $("#email").val(),
-            phone: $("#phone").val(),
-            login: $("#login").val(),
-            password: $("#password").val(),
-        },
-        success: (data) => {
-            if (data.success) {
-
-                location.href = data.link;
-            }
-            else {
-
-                swal("Atenção!\nCorrija os dados do formulário.");
-
-                data.errors.forEach(function (a) {
-                    let campo = Object.keys(a);
-                    let valor = Object.values(a);
-
-                    setErro(campo, valor);
-                });
-            };
-        }
-    });
-});
 
 $("form").on("change", "input", function (event) {
 
@@ -127,112 +84,3 @@ $("form").on("change", "input", function (event) {
         $("label[for='" + campo + "']").text(valor);
     }
 });
-
-function onReCaptchaSuccess() {
-
-    $("#recaptcha").removeClass("fail").text("");
-}
-
-function validaForm() {
-
-    let name = $("#name").val();
-    let email = $("#email").val();
-    let phone = $("#phone").val();
-    let login = $("#login").val();
-    let password = $("#password").val();
-    // let recaptcha = grecaptcha.getResponse();
-
-    let isValid = true;
-
-    if (name == "") {
-
-        isValid = setErro("name", "Nome em branco");
-    }
-
-    if (email == "") {
-
-        isValid = setErro("email", "E-Mail em branco");
-    }
-    else if (!validateEmail(email)) {
-
-        isValid = setErro("email", "E-Mail em formato inválido");
-    }
-
-    if (phone == "") {
-
-        isValid = setErro("phone", "Telefone em branco");
-    }
-    else if (!validatePhone(phone)) {
-
-        isValid = setErro("phone", "Telefone formato inválido");
-    }
-
-    if (login == "") {
-
-        isValid = setErro("login", "Login em branco");
-    }
-    else if (!validateSpecialCharacters(login)) {
-
-        isValid = setErro("login", "Login não pode ter caracteres especiais");
-    }
-    else if (login.length > 15) {
-
-        isValid = setErro("login", "Login não pode ter mais do que 15 caracteres");
-    }
-
-    if (password == "") {
-
-        isValid = setErro("password", "Senha em branco");
-    }
-    if (confirmpass == "") {
-
-        isValid = setErro("confirmpass", "Confirme Senha em branco");
-    }
-
-    // {% if isProduction == 1 %}
-    // if (recaptcha == "") {
-
-    //     isValid = setErro("recaptcha", "Por favor confirme que você é um humano.");
-    // }
-    // {% endif %}
-
-    if (!isValid) {
-
-        swal("Atenção!\nCorrija os dados do formulário.");
-    }
-
-    return isValid;
-}
-
-function setErro(campo, valor) {
-
-    if (campo == "recaptcha") {
-
-        $("#" + campo).addClass('fail').text(valor);
-    }
-    else {
-
-        $("#" + campo).addClass('fail');
-        let texto = $("label[for='" + campo + "']").text();
-        $("label[for='" + campo + "']").text(valor);
-    }
-
-    return false;
-}
-
-function validateEmail(email) {
-
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-}
-
-function validatePhone(phone) {
-
-    var re = /^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})\-?(\d{4}))$/;
-    return re.test(phone);
-}
-
-function validateSpecialCharacters(text) {
-    var re = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-    return re.test(text);
-}

@@ -7,9 +7,7 @@
     body {
         margin: 0;
         padding: 0;
-        display: flex;
-        
-        
+        display: flex;  
     }
     
     h1 {
@@ -28,19 +26,19 @@
     .forms-responsive {
         display: flex;
         flex-wrap: wrap;
-        
-
     }
-    .title-form{
+    .title-form {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 24px;
     }
-    .title-form p{
+    .title-form p {
         text-align: center;
         font-size: 14px;
         color: #626773;
         width: 90%;
+        margin: 0;
         font-weight: 600;
         line-height: 1.5;
     }
@@ -107,7 +105,7 @@
                 transform: rotate(45deg);
       }
 
-    .btn{
+    .btn {
         display: flex;
         justify-content: center;
         margin-top: 50px;
@@ -135,11 +133,11 @@
         left: 30px;
         
     }
-    #prevBtn .txt-back{
+    #prevBtn .txt-back {
         display: none;
         margin: 0 10px;
     }
-    #prevBtn img{
+    #prevBtn img {
         width:20px;
         height:20px;
     }
@@ -165,7 +163,7 @@
     }
     .form-cadastro .steps .step {
         height: 5px;
-        width: 33.3%;
+        width: 20%;
         background-color: #266EB5;
         border: none;
         display: inline-block;
@@ -196,6 +194,7 @@
     }
     .logo img {
         object-fit: contain;
+
     }   
     .material {
         position: relative;
@@ -289,18 +288,28 @@
         display: none;
         
     }
-    .copyright{
+    .tab .resume {
+        display: initial;
+        
+    }
+    .copyright {
         font-size: 14px;
         color: #626773;
         margin-top: 50px;
         width: 90%;
+        text-align: center;
     }
     .form-container.active {
         display: flex;
         flex-wrap: wrap;
         margin-top: 25px;
     }
-    .resumo ul {
+    .resume .logo {
+       text-align: center;
+       margin: 0 auto;
+        
+    }
+    .resume ul {
         margin: 0;
         padding: 0;
         list-style: none;
@@ -308,50 +317,71 @@
         margin: 25px 0;
         flex-direction: column;
     }
-    .resumo li {
+    .resume li {
         display: flex;
         justify-content: space-between;
-
     }
-    .resumo li span {
+    .resume li span {
        color: #266EB5;
        font-size: 14px;
        font-weight: 600;
     }
-    .resumo li p {
+    .resume p {
+        text-align: center;
+        
+    }
+    .resume li p {
         color: #95989F;
         font-size: 12px;
+        text-align: initial;
+        
+    }
+    .border-itens {
+        border-bottom: solid 1px #bbbec79d ;
+        padding: 15px 0;
     }
     
     /* Screen Desktop */
     @media screen and (min-width:1024px){
-        .resume{
-            display: flex;
-            width: 50%;
-            position: relative;
+        .tab .resume {
+            display: none;
+            
         }
-        .form-cadastro{
-            width: 50%;
+        .resume {
+            width: 30%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .form-cadastro {
+            width: 70%;
         }
 
-        form{
+        form {
             max-width: 444px;
 
         }
-        #prevBtn{
+        #prevBtn {
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
         }
-        #prevBtn .txt-back{
+        #prevBtn .txt-back {
             display: initial;
             margin: 0 10px;
         }
-        .title-form p{
+        .title-form img {
+            display: none;
+
+        }
+        .title-form p {
             min-width: 350px;
         }
-        .sucess-logo{
+        .sucess-logo {
             width: 150px;
         }
         /* PREREQUISITED CSS STYLES FOR LORY.JS */
@@ -435,10 +465,10 @@
             background-color: #41ABE5;
             box-shadow: inset 2px 0px 2px -2px #333;
         }
-        .copyright{
+        .copyright {
             font-size: 14px;
             color: #626773;
-            top: 100px;    
+            top: 100px; 
         }
         
     }

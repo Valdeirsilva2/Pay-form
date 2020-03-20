@@ -7,12 +7,39 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <script src="js/app.js"></script>
 </head>
 
 
 <body>
     <div class="resume">
+        <div class="logo">
+            <img src="logo.png" alt="Logo ConferenciaCorp">
+        </div>
+        <ul>
+            <li class="border-itens">
+                <span>Resumo da compra</span>
+            </li>
+            <li>
+                <div>
+                    <p>Data da Compra</p>
+                    <span> 12 de Março de 2020</span>
+                </div>
 
+            </li>
+            <li>
+                <div>
+                    <p>Plano Contratado</p>
+                    <span>Standart</span>
+                </div>
+            <li>
+                <div>
+                    <p>Preço Mensal</p>
+                    <span>R$ 44,90</span>
+                </div>
+            </li>
+            </li>
+        </ul>
 
     </div>
 
@@ -21,12 +48,12 @@
             <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
         </div>
 
         <form id="regForm" method="POST" action="http://uol.com.br">
-
-
-            <!-- <div class="tab">
+            <div class="tab">
                 <div class="title-form">
                     <div class="logo">
                         <img src="logo.png" alt="Logo ConferenciaCorp">
@@ -37,25 +64,25 @@
                     <input type="text" id="name" placeholder="Qual seu nome?" oninput="this.className = ''"
                         autocomplete="off">
                     <hr>
-                    <label>Nome</label>
+                    <label for="name" value="Nome">Nome</label>
                 </fieldset>
                 <fieldset class="material">
                     <input type="text" id="email" placeholder="Seu e-mail corporativo?" oninput="this.className = ''"
-                        autocomplete="off">
+                        autocomplete="off" required>
                     <hr>
-                    <label>E-mail corporativo</label>
+                    <label for="email" value="E-mail">E-mail corporativo</label>
                 </fieldset>
                 <fieldset class="material">
-                    <input type="tel" id="cnpj" placeholder="CPF ou CNPJ?" oninput="this.className = ''"
-                        autocomplete=" off">
+                    <input type="number" id="cnpj" placeholder="CPF ou CNPJ?" oninput="this.className = ''"
+                        autocomplete=" off" data-tipo=" ">
                     <hr>
-                    <label>CPF/CNPJ</label>
+                    <label for="cpf-cnpj" value="cpf/cnpj">CPF/CNPJ</label>
                 </fieldset>
                 <fieldset class="material">
                     <input type="tel" id="phone" placeholder="Seu Telefone?" oninput="this.className = ''"
                         autocomplete=" off">
                     <hr>
-                    <label>Telefone</label>
+                    <label for="phone" value="telefone">Telefone</label>
                 </fieldset>
                 <div class="term">
                     <input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2">
@@ -143,16 +170,16 @@
 
                     </fieldset>
                 </div>
-            </div> -->
+            </div>
             <div class="tab">
-                <div class="resumo">
+                <div class="resume">
                     <div class="logo">
                         <img src="logo.png" alt="Logo ConferenciaCorp">
                     </div>
                     <p>Para finalizar sua compra nos informe os dados do seu cartão</p>
 
                     <ul>
-                        <li>
+                        <li class="border-itens">
                             <span>Resumo da compra</span>
                         </li>
                         <li>
@@ -162,7 +189,7 @@
                             </div>
 
                         </li>
-                        <li>
+                        <li class="border-itens">
                             <div>
                                 <p>Plano Contratado</p>
                                 <span>Standart</span>
