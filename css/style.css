@@ -340,9 +340,18 @@
         border-bottom: solid 1px #bbbec79d ;
         padding: 15px 0;
     }
+    .possui-erro-validacao{
+        background-color: #ffdddd;
+    }
+
+    .erro-validacao{
+        background-color: #ffdddd;
+       
+    }
     
     /* Screen Desktop */
     @media screen and (min-width:1024px){
+
         .tab .resume {
             display: none;
             
