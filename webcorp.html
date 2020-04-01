@@ -62,26 +62,26 @@
                 <fieldset class="material">
                     <input type="text" id="name" placeholder="Qual seu nome?" oninput="this.className = ''"
                     autocomplete="off" data-tipo="name" required>
+                    <label id="labelName" for="name" value="nome">Nome</label>
                     <hr>
-                    <label for="name" value="Nome">Nome</label>
                 </fieldset>
                 <fieldset class="material">
-                    <input type="email" id="email" placeholder="Seu e-mail corporativo?" oninput="this.className = ''"
+                    <input type="text" id="email" placeholder="Seu e-mail corporativo?" oninput="this.className = ''"
                     autocomplete="off"  data-tipo="email" required>
                     <hr>
-                    <label for="email" value="E-mail">E-mail corporativo</label>
+                    <label id="labelEmail" "for="email" value="E-mail">E-mail corporativo</label>
                 </fieldset>
                 <fieldset class="material">
                     <input class="cpfcnpj" id="cpfcnpj" placeholder="CPF ou CNPJ?" oninput="this.className = ''"
                     autocomplete=" off"  onKeyPress="MascaraGenerica(this, 'CPFCNPJ');" data-tipo="cpfcnpj" maxlength="18" required>
                     <hr>
-                    <label for="cpfcnpj" value="cpfcnpj">CPF/CNPJ</label>
+                    <label id="labelCnpj" for="cpfcnpj" value="cpfcnpj">CPF/CNPJ</label>
                 </fieldset>
                 <fieldset class="material">
                     <input type="phone" id="phone" placeholder="Seu Telefone?" oninput="this.className = ''"
                     autocomplete=" off" onKeyPress="MascaraGenerica(this, 'TELEFONE');" data-tipo="phone" required >
                     <hr>
-                    <label for="phone" value="telefone">Telefone</label>
+                    <label id="labelPhone" for="phone" value="telefone">Telefone</label>
                 </fieldset>
                 <div class="term">
                     <input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2" data-tipo="term" required>
@@ -254,7 +254,6 @@
             container: '.card-wrapper'
         });
     </script>
-    <script type="module" src="assets/js/app.js"></script>   
     <script src="assets/js/webcorp.js"></script>
 
     

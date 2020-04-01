@@ -1,12 +1,10 @@
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
+var currentTab = 0;
+showTab(currentTab); 
 
 
 function showTab(n) {
-    // This function will display the specified tab of the form...
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
-    //... and fix the Previous/Next buttons:
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
     } else if (n == (x.length - 1)) {
@@ -19,63 +17,62 @@ function showTab(n) {
 }
 
 function nextPrev(n) {
-    // This function will figure out which tab to display
     var x = document.getElementsByClassName("tab");
-    // Exit the function if any field in the current tab is invalid:
     if (n == 1 && !validateForm()) return false;
-    // Hide the current tab:
     x[currentTab].style.display = "none";
-    // Increase or decrease the current tab by 1:
     currentTab = currentTab + n;
-    // if you have reached the end of the form...
     if (currentTab >= x.length) {
-        // ... the form gets submitted:
         document.getElementById("regForm").submit();
         return false;
     }
-    // Otherwise, display the correct tab:
     showTab(currentTab);
 }
 
 function validateForm() {
-    // This function deals with validation of the form fields
     var x, y, i, valid = true;
+    var label = document.querySelectorAll("label");
     x = document.getElementsByClassName("tab");
-    y = x[currentTab].getElementsByTagName("input");
-    // A loop that checks every input field in the current tab:
+    y = x[currentTab].getElementsByTagName("input");   
     for (i = 0; i < y.length; i++) {
-      // If a field is empty...
-    //   if (y[i].value == "") {
-    //     // add an "invalid" class to the field:
-    //     y[i].className += " invalid";
-    //     // and set the current valid status to false:
-    //     valid = false;
-    //   }
+      if (y[i].value == "") {
+        y[i].className += " invalid";
+        valid = false
+      } else if (y[i].id == "name" && !validateName(y[i].value )) {
+        y[i].className += " invalid";
+        valid = false;
+      } else if (y[i].id == "email" && !validateEmail(y[i].value )) {
+        y[i].className += " invalid","erro-txt";
+        valid = false;
+      } else if(y[i].id == "cpfcnpj" && !valida_cpf_cnpj(y[i].value)){
+        y[i].className += " invalid";
+        valid = false;
+      } else if(y[i].id == "phone" && !validaTelefone(y[i].value)){
+        y[i].className += " invalid";        
+        valid = false;
+      }
     }
-    // If the valid status is true, mark the step as finished and valid:
     if (valid) {
       document.getElementsByClassName("step")[currentTab].className += " finish";
     }
-    return valid; // return the valid status
+    return valid; 
   }
 
 function fixStepIndicator(n) {
-    // This function removes the "active" class of all steps...
     var i, x = document.getElementsByClassName("step");
     for (i = 0; i < x.length; i++) {
         x[i].className = x[i].className.replace(" active", "");
     }
-    //... and adds the "active" class on the current step:
     x[n].className += " active";
 }
 
 //Para produção
 
+// <<<<<<<<<<< Mascara dos Campos >>>>>>>>>>>>
 function MascaraInteiro(num) {
     var er = /[^0-9]/;
     er.lastIndex = 0;
     var campo = num;
-    if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
+    if (er.test(campo.value)) {
         var texto = $(campo).val();
         $(campo).val(texto.substring(0, texto.length - 1));
         return false;
@@ -87,7 +84,7 @@ function MascaraFloat(num) {
     var er = /[^0-9.,]/;
     er.lastIndex = 0;
     var campo = num;
-    if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
+    if (er.test(campo.value)) {
         var texto = $(campo).val();
         $(campo).val(texto.substring(0, texto.length - 1));
         return false;
@@ -95,13 +92,11 @@ function MascaraFloat(num) {
         return true;
     }
 }
-
-//formata de forma generica os campos
 function formataCampo(campo, Mascara) {
     var er = /[^0-9/ (),.-]/;
     er.lastIndex = 0;
     
-    if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
+    if (er.test(campo.value)) {
         var texto = $(campo).val();
         $(campo).val(texto.substring(0, texto.length - 1));
     }
@@ -132,7 +127,6 @@ function formataCampo(campo, Mascara) {
     }
     return true;
 }
-
 function MascaraGenerica(seletor, tipoMascara) {
     setTimeout(function () {
         if (tipoMascara == 'CPFCNPJ') {
@@ -160,6 +154,7 @@ function MascaraGenerica(seletor, tipoMascara) {
         }
     }, 200);
 }
+// <<<<<<<<<<< Fim Mascara dos Campos  >>>>>>>>>>>>
 
 // <<<<<<<<<<< Busca CEP >>>>>>>>>>>>
 
@@ -186,7 +181,7 @@ function meu_callback(conteudo) {
 }
 
 function pesquisacep(valor) {
-    
+    var valid = true;
     //Nova variável "cep" somente com dígitos.
     var cep = valor.replace(/\D/g, '');
     
@@ -217,10 +212,254 @@ function pesquisacep(valor) {
         } else {
             //cep é inválido.
             limpa_formulário_cep();
-            //adicionar um erro caso cep esteja errado
+            valid = false;
         }
     } else {
         //cep sem valor, limpa formulário.
         limpa_formulário_cep();
+        valid = false;
+
     }
 };
+// <<<<<<<<<<< Fim Busca CEP >>>>>>>>>>>>
+
+// <<<<<<<<<<< Válida CPF e CNPJ >>>>>>>>>>>>
+function verifica_cpf_cnpj ( valor ) {
+
+    // Garante que o valor é uma string
+    valor = valor.toString();
+    
+    // Remove caracteres inválidos do valor
+    valor = valor.replace(/[^0-9]/g, '');
+
+    // Verifica CPF
+    if ( valor.length === 11 ) {
+        return 'CPF';
+    } 
+    
+    // Verifica CNPJ
+    else if ( valor.length === 14 ) {
+        return 'CNPJ';
+    } 
+    
+    // Não retorna nada
+    else {
+        return false;
+    }
+    
+}
+function calc_digitos_posicoes( digitos, posicoes = 10, soma_digitos = 0 ) {
+    digitos = digitos.toString();
+    for ( var i = 0; i < digitos.length; i++  ) {
+        soma_digitos = soma_digitos + ( digitos[i] * posicoes );
+        posicoes--;
+        if ( posicoes < 2 ) {
+            posicoes = 9;
+        }
+    }
+    soma_digitos = soma_digitos % 11;
+
+    if ( soma_digitos < 2 ) {
+        soma_digitos = 0;
+    } else {
+        soma_digitos = 11 - soma_digitos;
+    }
+    var cpf = digitos + soma_digitos;
+
+    // Retorna
+    return cpf;
+    
+} 
+function valida_cpf( valor ) {
+    valor = valor.toString();
+    valor = valor.replace(/[^0-9]/g, '');
+    var label = document.getElementById('labelCnpj');
+
+
+    
+    var digitos = valor.substr(0, 9);
+
+    var novo_cpf = calc_digitos_posicoes( digitos );
+
+    var novo_cpf = calc_digitos_posicoes( novo_cpf, 11 );
+
+    if ( novo_cpf === valor ) {
+        label.style.color = "#607d8b";
+        label.textContent = "CPF/CNPJ";        
+        return true;
+
+    } else {
+        label.style.color = "#d6060b";
+        label.textContent = "CPF Invalído";
+        return false;
+    }
+    
+} 
+function valida_cnpj ( valor ) {
+
+    // Garante que o valor é uma string
+    valor = valor.toString();
+    var label = document.getElementById('labelCnpj');
+    
+    // Remove caracteres inválidos do valor
+    valor = valor.replace(/[^0-9]/g, '');
+
+    
+    // O valor original
+    var cnpj_original = valor;
+
+    // Captura os primeiros 12 números do CNPJ
+    var primeiros_numeros_cnpj = valor.substr( 0, 12 );
+
+    // Faz o primeiro cálculo
+    var primeiro_calculo = calc_digitos_posicoes( primeiros_numeros_cnpj, 5 );
+
+    // O segundo cálculo é a mesma coisa do primeiro, porém, começa na posição 6
+    var segundo_calculo = calc_digitos_posicoes( primeiro_calculo, 6 );
+
+    // Concatena o segundo dígito ao CNPJ
+    var cnpj = segundo_calculo;
+
+    // Verifica se o CNPJ gerado é idêntico ao enviado
+    if ( cnpj === cnpj_original ) {
+        label.style.color = "#607d8b";
+        label.textContent = "CPF/CNPJ";
+        return true;
+    }
+    label.style.color = "#d6060b";
+    label.textContent = "CNPJ Invalído";
+    return false;
+    
+} 
+function valida_cpf_cnpj ( valor ) {
+
+    // Verifica se é CPF ou CNPJ
+    var valida = verifica_cpf_cnpj( valor );
+    
+
+    // Garante que o valor é uma string
+    valor = valor.toString();
+    
+    // Remove caracteres inválidos do valor
+    valor = valor.replace(/[^0-9]/g, '');
+
+
+    // Valida CPF
+    if ( valida === 'CPF' ) {
+        // Retorna true para cpf válido
+        return valida_cpf( valor );
+    } 
+    
+    // Valida CNPJ
+    else if ( valida === 'CNPJ' ) {
+        // Retorna true para CNPJ válido
+        return valida_cnpj( valor );
+    } 
+    
+    // Não retorna nada
+    else {
+        return false;
+    }
+    
+} 
+function formata_cpf_cnpj( valor ) {
+
+    // O valor formatado
+    var formatado = false;
+    
+    // Verifica se é CPF ou CNPJ
+    var valida = verifica_cpf_cnpj( valor );
+
+    // Garante que o valor é uma string
+    valor = valor.toString();
+    
+    // Remove caracteres inválidos do valor
+    valor = valor.replace(/[^0-9]/g, '');
+
+
+    // Valida CPF
+    if ( valida === 'CPF' ) {
+    
+        // Verifica se o CPF é válido
+        if ( valida_cpf( valor ) ) {
+        
+            // Formata o CPF ###.###.###-##
+            formatado  = valor.substr( 0, 3 ) + '.';
+            formatado += valor.substr( 3, 3 ) + '.';
+            formatado += valor.substr( 6, 3 ) + '-';
+            formatado += valor.substr( 9, 2 ) + '';
+            
+        }
+        
+    }
+    
+    // Valida CNPJ
+    else if ( valida === 'CNPJ' ) {
+    
+        // Verifica se o CNPJ é válido
+        if ( valida_cnpj( valor ) ) {
+        
+            // Formata o CNPJ ##.###.###/####-##
+            formatado  = valor.substr( 0,  2 ) + '.';
+            formatado += valor.substr( 2,  3 ) + '.';
+            formatado += valor.substr( 5,  3 ) + '/';
+            formatado += valor.substr( 8,  4 ) + '-';
+            formatado += valor.substr( 12, 14 ) + '';
+            
+        }
+        
+    } 
+
+    // Retorna o valor 
+    return formatado;
+    
+}
+// <<<<<<<<<<< Fim Válida CPF e CNPJ >>>>>>>>>>>>
+
+function validateName(input) {
+    var re = /^[A-Z]+$/i;
+    var validaName = re.test(input);
+    var label = document.getElementById('labelName');
+    if(!validaName){
+               label.style.color = "#d6060b";
+               label.textContent = "Permitido apenas letras";
+        return false;
+    } else
+    label.style.color = "#607d8b";
+    label.textContent = "Nome";
+    return true;
+}
+
+function validateEmail(input) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var emailValidado = re.test(String(input).toLowerCase());
+    var label = document.getElementById('labelEmail');
+    if(!emailValidado){
+        label.style.color = "#d6060b";
+        label.textContent = "E-mail Invalído";
+        return false;
+    } else 
+    label.style.color = "#607d8b";
+    label.textContent = "E-mail ";
+    return true;
+
+}
+// <<<<<<<<<<< Válida Telefone >>>>>>>>>>>>
+function validaTelefone(input) {
+    var numeros = input.toString();
+    
+    // Remove caracteres inválidos do valor
+     var telefoneNumeros = numeros.replace(/[^0-9]/g, '');
+     var label = document.getElementById('labelPhone');
+     if (telefoneNumeros.length < 10) {
+        label.style.color = "#d6060b";
+        label.textContent = "Telefone Invalído";
+         return false;
+    }
+    label.style.color = "#607d8b";
+    label.textContent = "Telefone ";
+    return true;
+}
+// <<<<<<<<<<< Fim Válida Telefone >>>>>>>>>>>>
+
+
