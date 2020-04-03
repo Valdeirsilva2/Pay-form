@@ -30,7 +30,6 @@ function nextPrev(n) {
 
 function validateForm() {
     var x, y, i, valid = true;
-    var label = document.querySelectorAll("label");
     x = document.getElementsByClassName("tab");
     y = x[currentTab].getElementsByTagName("input");   
     for (i = 0; i < y.length; i++) {
@@ -41,12 +40,18 @@ function validateForm() {
         y[i].className += " invalid";
         valid = false;
       } else if (y[i].id == "email" && !validateEmail(y[i].value )) {
-        y[i].className += " invalid","erro-txt";
+        y[i].className += " invalid";
         valid = false;
       } else if(y[i].id == "cpfcnpj" && !valida_cpf_cnpj(y[i].value)){
         y[i].className += " invalid";
         valid = false;
       } else if(y[i].id == "phone" && !validaTelefone(y[i].value)){
+        y[i].className += " invalid";        
+        valid = false;
+      } else if(y[i].id == "password" && !validatePassword(y[i].value)){
+        y[i].className += " invalid";        
+        valid = false;
+      } else if(y[i].id == "confirmpass" && !validateRePassw(y[i].value)){
         y[i].className += " invalid";        
         valid = false;
       }
@@ -167,7 +172,7 @@ function limpa_formulário_cep() {
 
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
-        //Atualiza os campos com os valores.
+        //Atualiza os campos com os valores.        
         document.getElementById('rua').value=(conteudo.logradouro);
         document.getElementById('bairro').value=(conteudo.bairro);
         document.getElementById('cidade').value=(conteudo.localidade);
@@ -176,7 +181,6 @@ function meu_callback(conteudo) {
     else {
         //CEP não Encontrado.
         limpa_formulário_cep();
-        alert("CEP não encontrado.");
     }
 }
 
@@ -184,6 +188,7 @@ function pesquisacep(valor) {
     var valid = true;
     //Nova variável "cep" somente com dígitos.
     var cep = valor.replace(/\D/g, '');
+    var label = document.getElementById('labelCep');
     
     //Verifica se campo cep possui valor informado.
     if (cep != "") {
@@ -208,17 +213,23 @@ function pesquisacep(valor) {
             
             //Insere script no documento e carrega o conteúdo.
             document.body.appendChild(script);
+            label.style.color = "#607d8b";
+            label.textContent = "CEP";
             
         } else {
             //cep é inválido.
+            label.style.color = "#d6060b";
+            label.textContent = "CEP Inválido";
+            
             limpa_formulário_cep();
             valid = false;
         }
     } else {
         //cep sem valor, limpa formulário.
+        label.style.color = "#d6060b";
+        label.textContent = "Campo Vazio";
         limpa_formulário_cep();
         valid = false;
-
     }
 };
 // <<<<<<<<<<< Fim Busca CEP >>>>>>>>>>>>
@@ -228,6 +239,7 @@ function verifica_cpf_cnpj ( valor ) {
 
     // Garante que o valor é uma string
     valor = valor.toString();
+    var label = document.getElementById('labelCnpj');
     
     // Remove caracteres inválidos do valor
     valor = valor.replace(/[^0-9]/g, '');
@@ -244,9 +256,10 @@ function verifica_cpf_cnpj ( valor ) {
     
     // Não retorna nada
     else {
+        label.style.color = "#d6060b";
+        label.textContent = "CPF ou CNPJ Inválido";
         return false;
-    }
-    
+    }  
 }
 function calc_digitos_posicoes( digitos, posicoes = 10, soma_digitos = 0 ) {
     digitos = digitos.toString();
@@ -275,8 +288,6 @@ function valida_cpf( valor ) {
     valor = valor.replace(/[^0-9]/g, '');
     var label = document.getElementById('labelCnpj');
 
-
-    
     var digitos = valor.substr(0, 9);
 
     var novo_cpf = calc_digitos_posicoes( digitos );
@@ -290,7 +301,7 @@ function valida_cpf( valor ) {
 
     } else {
         label.style.color = "#d6060b";
-        label.textContent = "CPF Invalído";
+        label.textContent = "CPF Inválido";
         return false;
     }
     
@@ -327,7 +338,7 @@ function valida_cnpj ( valor ) {
         return true;
     }
     label.style.color = "#d6060b";
-    label.textContent = "CNPJ Invalído";
+    label.textContent = "CNPJ Inválido";
     return false;
     
 } 
@@ -436,7 +447,7 @@ function validateEmail(input) {
     var label = document.getElementById('labelEmail');
     if(!emailValidado){
         label.style.color = "#d6060b";
-        label.textContent = "E-mail Invalído";
+        label.textContent = "E-mail Inválido";
         return false;
     } else 
     label.style.color = "#607d8b";
@@ -453,7 +464,7 @@ function validaTelefone(input) {
      var label = document.getElementById('labelPhone');
      if (telefoneNumeros.length < 10) {
         label.style.color = "#d6060b";
-        label.textContent = "Telefone Invalído";
+        label.textContent = "Telefone Inválido";
          return false;
     }
     label.style.color = "#607d8b";
@@ -462,4 +473,31 @@ function validaTelefone(input) {
 }
 // <<<<<<<<<<< Fim Válida Telefone >>>>>>>>>>>>
 
-
+// <<<<<<<<<<< Válida Senha >>>>>>>>>>>>
+function validatePassword(input) {
+    
+    var label = document.getElementById('labelCep');
+    if(input.length < 8 ){
+               label.style.color = "#d6060b";
+               label.textContent = "Senha minimo 8 caracteres";
+        return false;
+    } else
+    label.style.color = "#607d8b";
+    label.textContent = "Senha";
+    return true;
+}
+function validateRePassw(input) {    
+    var label = document.getElementById('labelConfirmpass');
+    var passw = document.getElementById('password');
+    if(input === passw.value) {
+        
+        label.style.color = "#607d8b";
+        label.textContent = "Confirmar senha";            
+        return true
+    } else
+        label.style.color = "#d6060b";
+        label.textContent = "Senhas estão diferentes";
+    
+    return false;
+}
+// <<<<<<<<<<< Fim Válida Senha >>>>>>>>>>>>

@@ -351,10 +351,12 @@
     
     /* Screen Desktop */
     @media screen and (min-width:1024px){
+        .input-medium {
+            width: 71%;
+        }
 
         .tab .resume {
-            display: none;
-            
+            display: none;            
         }
         .resume {
             width: 30%;

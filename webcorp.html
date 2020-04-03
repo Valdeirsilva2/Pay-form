@@ -69,7 +69,7 @@
                     <input type="text" id="email" placeholder="Seu e-mail corporativo?" oninput="this.className = ''"
                     autocomplete="off"  data-tipo="email" required>
                     <hr>
-                    <label id="labelEmail" "for="email" value="E-mail">E-mail corporativo</label>
+                    <label id="labelEmail" value="E-mail">E-mail corporativo</label>
                 </fieldset>
                 <fieldset class="material">
                     <input class="cpfcnpj" id="cpfcnpj" placeholder="CPF ou CNPJ?" oninput="this.className = ''"
@@ -103,16 +103,16 @@
                     <label>Usuário</label>
                 </fieldset>
                 <fieldset class="material">
-                    <input type="text" id="password" placeholder="Crie a sua senha" oninput="this.className = ''"
+                    <input id="password" placeholder="Crie a sua senha" oninput="this.className = ''"
                     autocomplete="off" data-tipo="password" required>
                     <hr>
-                    <label>Senha</label>
+                    <label id="labelPassword">Senha</label>
                 </fieldset>
                 <fieldset class="material">
-                    <input type="text" id="confirmpass" placeholder="Reedigite sua senha" oninput="this.className = ''"
+                    <input id="confirmpass" placeholder="Reedigite sua senha" oninput="this.className = ''"
                     autocomplete=" off" data-tipo="confirmpass" required>
                     <hr>
-                    <label>Confirmar senha</label>
+                    <label id="labelConfirmpass">Confirmar senha</label>
                 </fieldset>
             </div>
             <div class="tab">
@@ -128,7 +128,7 @@
                         <input name="cep" id="cep" placeholder="Qual seu CEP?" oninput="this.className = ''"
                         autocomplete="off" onKeyPress="MascaraGenerica(this, 'CEP')" onblur="pesquisacep(this.value)"  data-tipo="cep"required>
                         <hr>
-                        <label>CEP</label>
+                        <label id="labelCep">CEP</label>
                     </fieldset>
                     <fieldset class="material">
                         <input name="rua" id="rua" placeholder="Rua" oninput="this.className = ''" autocomplete="off" data-tipo="name">
@@ -136,36 +136,36 @@
                         <label>Rua</label>
                     </fieldset>
                     <fieldset class="material input-small">
-                        <input type="text" id="confirmpass" placeholder="Número" oninput="this.className = ''"
+                        <input type="text" id="numero" placeholder="Número" oninput="this.className = ''"
                         autocomplete=" off">
                         <hr>
-                        <label>Número</label>
+                        <label id="labelNumero">Número</label>
                         
                     </fieldset>
                     <fieldset class="material input-medium">
-                        <input type="text" id="confirmpass" placeholder="Complemento" oninput="this.className = ''"
+                        <input type="text" id="complemento" placeholder="Complemento" oninput="this.className = ''"
                         >
                         <hr>
-                        <label>Complemento</label>
+                        <label id="labelComplemento">Complemento</label>
                         
                     </fieldset>
                     <fieldset class="material">
                         <input id="bairro" placeholder="Bairro" oninput="this.className = ''"
                         autocomplete="off">
                         <hr>
-                        <label>Bairro</label>
+                        <label id="labelBairro">Bairro</label>
                     </fieldset>
                     <fieldset class="material input-medium">
                         <input type="text" id="cidade" placeholder="Cidade" oninput="this.className = ''"
                         >
                         <hr>
-                        <label>Cidade</label>
+                        <label id="labelCidade">Cidade</label>
                     </fieldset>
                     <fieldset class="material input-small">
                         <input type="text" id="uf" placeholder="Estado" oninput="this.className = ''"
                         >
                         <hr>
-                        <label>Estado</label>
+                        <label id="labelUf">Estado</label>
                         
                     </fieldset>
                 </div>
@@ -255,7 +255,4 @@
         });
     </script>
     <script src="assets/js/webcorp.js"></script>
-
-    
-    
     </html>
