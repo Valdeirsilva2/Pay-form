@@ -48,6 +48,9 @@ function validateForm() {
       } else if(y[i].id == "phone" && !validaTelefone(y[i].value)){
         y[i].className += " invalid";        
         valid = false;
+      } else if(y[i].id == "styled-checkbox-2" && !validadeCheckbox(y[i])){
+        y[i].className += " invalid";   
+        valid = false;
       } else if(y[i].id == "password" && !validatePassword(y[i].value)){
         y[i].className += " invalid";        
         valid = false;
@@ -428,7 +431,7 @@ function formata_cpf_cnpj( valor ) {
 // <<<<<<<<<<< Fim Válida CPF e CNPJ >>>>>>>>>>>>
 
 function validateName(input) {
-    var re = /^[A-Z]+$/i;
+    var re = /^[a-zA-Z\s]*$/;
     var validaName = re.test(input);
     var label = document.getElementById('labelName');
     if(!validaName){
@@ -473,10 +476,18 @@ function validaTelefone(input) {
 }
 // <<<<<<<<<<< Fim Válida Telefone >>>>>>>>>>>>
 
+const validadeCheckbox = ( input => {
+    if(input.checked == false) {
+        alert("Favor Aceitar os termos");
+        return false;
+    }
+    return true;
+});
+
 // <<<<<<<<<<< Válida Senha >>>>>>>>>>>>
 function validatePassword(input) {
     
-    var label = document.getElementById('labelCep');
+    var label = document.getElementById('labelPassword');
     if(input.length < 8 ){
                label.style.color = "#d6060b";
                label.textContent = "Senha minimo 8 caracteres";
@@ -486,6 +497,7 @@ function validatePassword(input) {
     label.textContent = "Senha";
     return true;
 }
+
 function validateRePassw(input) {    
     var label = document.getElementById('labelConfirmpass');
     var passw = document.getElementById('password');
@@ -501,3 +513,27 @@ function validateRePassw(input) {
     return false;
 }
 // <<<<<<<<<<< Fim Válida Senha >>>>>>>>>>>>
+$(".show").on("click", function(){
+    $(".mask").addClass("active-term");
+  });
+  
+  // Function for close the Modal
+  
+  function closeModal(){
+    $(".mask").removeClass("active-term");
+  }
+  
+  // Call the closeModal function on the clicks/keyboard
+  
+  $(".close, .mask").on("click", function(){
+    closeModal();
+  });
+  $(".btnAcceptTerm, .mask").on("click", function(){
+    closeModal();
+  });
+  
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) {
+      closeModal();
+    }
+  });

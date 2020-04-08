@@ -67,7 +67,7 @@
                 </fieldset>
                 <fieldset class="material">
                     <input type="text" id="email" placeholder="Seu e-mail corporativo?" oninput="this.className = ''"
-                    autocomplete="off"  data-tipo="email" required>
+                    autocomplete="off" data-tipo="email" required>
                     <hr>
                     <label id="labelEmail" value="E-mail">E-mail corporativo</label>
                 </fieldset>
@@ -85,7 +85,7 @@
                 </fieldset>
                 <div class="term">
                     <input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2" data-tipo="term" required>
-                    <label for="styled-checkbox-2">Li e concordo com os Termos de Uso da WebCorp</label>
+                    <label for="styled-checkbox-2">Li e concordo com os <i class="show">Termos de Uso da WebCorp</i></label>
                 </div>
             </div>
             <div class="tab">
@@ -236,15 +236,36 @@
                     <span></span>
                 </div>
             </div>
-            <div class="btn">
-                <a type="button" id="prevBtn" onclick="nextPrev(-1)">
+            <div class="contentBtnNext contentBtn ">
+                <a class="prevBtn" type="button" id="prevBtn" onclick="nextPrev(-1)">
                     <img src="back.svg" alt="Logo" /> <span class="txt-back">Voltar</span>
                 </a>
-                <button class="btn-return" type="button" id="nextBtn" onclick="nextPrev(1)">
-                    Proximo</button>
+                <button class="btn-return btn-default" type="button" id="nextBtn" onclick="nextPrev(1)">
+                    Proximo
+                </button>
                 </div>
             </form>
             <p class="copyright">©Copyright 2020 ConferenciaCorp. Todos os direitos reservados.</p>
+        </div>
+        
+        <div class="mask" role="dialog"></div>
+        <div class="modal-term" role="alert">
+
+            <button class="close" role="button">X</button>
+            <h1>Termos de Uso da WebCorp</h1>
+            <div class="termo">
+                <p class="text-termo">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pellentesque enim ac magna facilisis auctor. Sed eget enim non est fermentum convallis eget vel dolor. Aliquam ut dui ac quam placerat maximus vitae ut augue. Suspendisse pellentesque et sem non luctus. Vestibulum mauris massa, scelerisque a turpis a, commodo auctor lacus. Phasellus id magna a ligula viverra sodales. Sed tempor neque non malesuada vehicula. Nam a venenatis magna. Suspendisse ex nunc, dignissim ut molestie vel, viverra sed orci. Nam vitae metus convallis, sodales nibh nec, venenatis neque. Quisque nisi diam, molestie nec metus non, pharetra suscipit sapien. Duis fermentum consectetur velit id pulvinar. Morbi finibus in lacus sit amet accumsan. Mauris suscipit lorem lectus, at gravida nisl auctor non. Ut accumsan ex justo, sed consequat
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pellentesque enim ac magna facilisis auctor. Sed eget enim non est fermentum convallis eget vel dolor. Aliquam ut dui ac quam placerat maximus vitae ut augue. Suspendisse pellentesque et sem non luctus. Vestibulum mauris massa, scelerisque a turpis a, commodo auctor lacus. Phasellus id magna a ligula viverra sodales. Sed tempor neque non malesuada vehicula. Nam a venenatis magna. Suspendisse ex nunc, dignissim ut molestie vel, viverra sed orci. Nam vitae metus convallis, sodales nibh nec, venenatis neque. Quisque nisi diam, molestie nec metus non, pharetra suscipit sapien. Duis fermentum consectetur velit id pulvinar. Morbi finibus in lacus sit amet accumsan. Mauris suscipit lorem lectus, at gravida nisl auctor non. Ut accumsan ex justo, sed consequat
+                </p>
+                <div class="contentBtnTerm contentBtn">
+                    <a href="./logo.png" class="btnDownloadTerm" type="submit" id="btnDownloadTerm" download="Termo-de-Uso">Baixar Termos de Uso</a>
+                        
+                    <button class="btnAcceptTerm btn-default" type="button" id="btnAcceptTerm">
+                        Concordo
+                    </button>
+                </div>
+            </div>            
         </div>
     </body>
     <script src="assets/js/card.js"></script>
