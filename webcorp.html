@@ -50,6 +50,12 @@
             <span class="step"></span>
             <span class="step"></span>
         </div>
+        <div class="step-text">
+            <span class="steptxt">1.Dados Pessoais  > </span>
+            <span class="steptxt">2.Dados Webcorpo  > </span>
+            <span class="steptxt">3.Endereço > </span>
+            <span class="steptxt">4.Pagamento</span>
+        </div>
         
         <form id="regForm" method="POST" action="http://uol.com.br">
             <div class="tab">
@@ -66,10 +72,10 @@
                     <hr>
                 </fieldset>
                 <fieldset class="material">
-                    <input type="text" id="email" placeholder="Seu e-mail corporativo?" oninput="this.className = ''"
+                    <input type="text" id="email" placeholder="Seu e-mail?" oninput="this.className = ''"
                     autocomplete="off" data-tipo="email" required>
                     <hr>
-                    <label id="labelEmail" value="E-mail">E-mail corporativo</label>
+                    <label id="labelEmail" value="E-mail">E-mail</label>
                 </fieldset>
                 <fieldset class="material">
                     <input class="cpfcnpj" id="cpfcnpj" placeholder="CPF ou CNPJ?" oninput="this.className = ''"
@@ -78,14 +84,14 @@
                     <label id="labelCnpj" for="cpfcnpj" value="cpfcnpj">CPF/CNPJ</label>
                 </fieldset>
                 <fieldset class="material">
-                    <input type="phone" id="phone" placeholder="Seu Telefone?" oninput="this.className = ''"
+                    <input type="phone" id="phone" placeholder="Qual seu telefone?" oninput="this.className = ''"
                     autocomplete=" off" onKeyPress="MascaraGenerica(this, 'TELEFONE');" data-tipo="phone" required >
                     <hr>
                     <label id="labelPhone" for="phone" value="telefone">Telefone</label>
                 </fieldset>
                 <div class="term">
                     <input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2" data-tipo="term" required>
-                    <label for="styled-checkbox-2">Li e concordo com os <i class="show">Termos de Uso da WebCorp</i></label>
+                    <label for="styled-checkbox-2">Li e concordo com os <br><span class="link-term show">Termos de Uso da WebCorp</span></label>
                 </div>
             </div>
             <div class="tab">
@@ -98,21 +104,23 @@
                 
                 <fieldset class="material">
                     <input type="text" id="login" placeholder="Crie o seu usuário" oninput="this.className = ''"
-                    autocomplete="off" data-tipo="login" required>
+                    data-tipo="login" required>
                     <hr>
                     <label>Usuário</label>
                 </fieldset>
                 <fieldset class="material">
-                    <input id="password" placeholder="Crie a sua senha" oninput="this.className = ''"
-                    autocomplete="off" data-tipo="password" required>
+                    <input type="password" id="password" placeholder="Crie a sua senha" oninput="this.className = ''"
+                    autocomplete="off"required>
                     <hr>
                     <label id="labelPassword">Senha</label>
+                    <img id="showpass" src="showpass.svg" alt="mostrar senha" onclick="showPass()">
                 </fieldset>
                 <fieldset class="material">
-                    <input id="confirmpass" placeholder="Reedigite sua senha" oninput="this.className = ''"
-                    autocomplete=" off" data-tipo="confirmpass" required>
+                    <input type="password" id="confirmpass" placeholder="Confirme sua senha" oninput="this.className = ''"
+                    autocomplete=" off">
                     <hr>
                     <label id="labelConfirmpass">Confirmar senha</label>
+                    <img id="showrepass" src="showpass.svg" alt="mostrar senha" onclick="showRepass()">
                 </fieldset>
             </div>
             <div class="tab">
@@ -207,7 +215,7 @@
                     <fieldset class="material">
                         <input placeholder="Número " type="tel" name="number">
                         <hr>
-                        <label>N°</label>
+                        <label>Número</label>
                     </fieldset>
                     <fieldset class="material">
                         <input placeholder="Nome (Igual do Cartão)" type="text" name="name">
@@ -217,7 +225,7 @@
                     <fieldset class="material input-medium">
                         <input placeholder="Validade" type="tel" name="expiry">
                         <hr>
-                        <label>MM/YY</label>
+                        <label>MM/AA</label>
                     </fieldset>
                     <fieldset class="material input-small">
                         <input placeholder="CVV" type="number" name="cvc">
@@ -240,7 +248,7 @@
                 <a class="prevBtn" type="button" id="prevBtn" onclick="nextPrev(-1)">
                     <img src="back.svg" alt="Logo" /> <span class="txt-back">Voltar</span>
                 </a>
-                <button class="btn-return btn-default" type="button" id="nextBtn" onclick="nextPrev(1)">
+                <button class="btn-return btn-default" type="button" id="nextBtn" onclick="nextPrev(1)" >
                     Proximo
                 </button>
                 </div>
@@ -262,7 +270,7 @@
                     <a href="./logo.png" class="btnDownloadTerm" type="submit" id="btnDownloadTerm" download="Termo-de-Uso">Baixar Termos de Uso</a>
                         
                     <button class="btnAcceptTerm btn-default" type="button" id="btnAcceptTerm">
-                        Concordo
+                        Concordar
                     </button>
                 </div>
             </div>            
