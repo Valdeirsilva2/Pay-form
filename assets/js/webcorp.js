@@ -10,10 +10,12 @@ function showTab(n) {
     } else if (n == (x.length - 1)) {
         document.getElementById("prevBtn").style.display = "none";
     } else {
-        document.getElementById("prevBtn").style.display = "inline";
+        document.getElementById("prevBtn").style.display = "flex";
     }
+    fixStepIndicator(n);
+    fixStepIndicatorTxt(n);
     
-    fixStepIndicator(n)
+
 }
 
 function nextPrev(n) {
@@ -71,6 +73,14 @@ function fixStepIndicator(n) {
         x[i].className = x[i].className.replace(" active", "");
     }
     x[n].className += " active";
+}
+function fixStepIndicatorTxt(y) {
+    var i, x = document.getElementsByClassName("steptxt");
+    for (i = 0; i < x.length; i++) {
+        x[i].className = x[i].className.replace(" setcolor", "");
+    }
+    x[y].className += " setcolor";
+    console.log(i, x)
 }
 
 //Para produção
@@ -537,3 +547,21 @@ $(".show").on("click", function(){
       closeModal();
     }
   });
+
+  function showPass() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
+  function showRepass() {
+    // var y = document.getElementById("confirmpass");
+    if (y.type === "password") {
+      y.type = "text";
+    } else {
+      y.type = "password";
+    }
+  }

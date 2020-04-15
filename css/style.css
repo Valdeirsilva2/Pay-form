@@ -35,17 +35,18 @@ input.invalid {
 }
 .title-form p {
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     color: #626773; 
     width: 90%;
     margin: 0;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.5;
 }
 .title-form .created-acount {
     text-align: center;
     font-size: 14px;
     color: #626773;
+    text-align: center;
     width: 250px;
     line-height: 1.5;
 }
@@ -63,25 +64,20 @@ input.invalid {
 .styled-checkbox + label {
     position: relative;
     cursor: pointer;
+    color: #626773;
     padding: 0;
     font-size: 14px;
 }
 .styled-checkbox + label:before {
     content: '';
-    margin-right: 10px;
+    margin: 0 10px 5px 0;
     display: inline-block;
     vertical-align: text-top;
     width: 20px;
     height: 20px;
-    border: solid 1px #000;
+    border: solid 1px #626773;
     border-radius: 2px;
 }
-/* .styled-checkbox:hover + label:before {
-    background: #266EB5;
-}
-.styled-checkbox:focus + label:before {
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
-} */
 .styled-checkbox:checked + label:before {
     border: solid 1px #266EB5;
 }
@@ -119,7 +115,7 @@ input.invalid {
     letter-spacing: 0.19px;
     width: 134px;
     height: 39px;
-    font-size: 17px;
+    font-size: 16px;
     font-family: 'Montserrat' ;
     cursor: pointer;
     border-radius: 5px;
@@ -171,6 +167,9 @@ button:hover {
     display: inline-block;
     opacity: 0;
 }
+.step-text {
+    display: none;
+}
 
 .form-cadastro .step.active {
     opacity: 1;
@@ -183,14 +182,15 @@ button:hover {
 }
 
 form {        
-    font-family: 'Montserrat';        
+    font-family: 'Montserrat' sans-serif;        
     width: 90%;
-    margin-top: 25px;
-    max-width: 280px;
+    margin-top: 24px;
+    /* max-width: 280px; */
 }
 .logo {
     display: flex;
     justify-content: center;
+    margin-bottom: 16px;
     width: 93px;
     height: 45px;
 }
@@ -211,15 +211,27 @@ form {
 .input-medium {
     width: 70%;
 }
+#showpass, 
+#showrepass{
+    position: absolute;
+    right: 15px;
+    z-index: 2;
+    top: 25px;
+    cursor: pointer;
+}
+#password, 
+#confirmpass{
+    position: relative;
+
+}
 .material input {
+    font-weight: 300;
+    margin-bottom: 3px;
     box-sizing: border-box;
     width: 100%;
-    padding: 20px 10px;
+    padding: 20px 16px;
     border: none;
-    border-radius: 5px;
-    box-shadow: none;
     color: #266EB5;
-    border-bottom: 1px solid #ddd;
     font-size: 16px;
     outline: none;
     cursor: text;
@@ -269,10 +281,10 @@ input:focus::placeholder {
 }
 .material label {
     position: absolute;
-    top: 13px;
-    left: 10px;
-    font-size: 16px;;
-    color: #607d8b;
+    top: 16px;
+    left: 16px;
+    font-size: 16px;
+    color: #626773;
     -webkit-transform-origin: 0 -150%;
     transform-origin: 0 -150%;
     -webkit-transition: -webkit-transform 300ms ease;
@@ -295,9 +307,9 @@ input:focus::placeholder {
     
 }
 .copyright {
-    font-size: 14px;
+    font-size: 12px;
     color: #626773;
-    margin-top: 50px;
+    margin-top: 56px;
     width: 90%;
     text-align: center;
 }
@@ -308,7 +320,7 @@ input:focus::placeholder {
 }
 .resume .logo {
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 16px;
     
 }
 .resume ul {
@@ -322,25 +334,35 @@ input:focus::placeholder {
 .resume li {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 16px;
 }
 .resume li span {
     color: #266EB5;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
 }
 .resume p {
     text-align: center;
+    font-size: 16px;
+    color: #626773;
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.5;
     
 }
 .resume li p {
     color: #95989F;
+    font-size: 14px;
+    text-align: initial;
+    margin-bottom: 8px;
     font-size: 12px;
     text-align: initial;
+    font-weight: 400;
     
 }
 .border-itens {
     border-bottom: solid 1px #bbbec79d ;
-    padding: 15px 0;
+    padding: 16px 0;
 }
 .possui-erro-validacao{
     background-color: #ffdddd;
@@ -348,11 +370,6 @@ input:focus::placeholder {
 
 .erro-txt{
     color: red;
-    
-}
-
-.show{
-    color: #266EB5 ;
     
 }
 .close{
@@ -418,7 +435,10 @@ input:focus::placeholder {
     width: 90%;
     height: 90%;
     overflow-y: auto;
-       
+    
+}
+.link-term {
+    color: #266EB5 ;
 }
 .termo .text-termo {
     padding: 10px;  
@@ -434,13 +454,12 @@ input:focus::placeholder {
 @media screen and (min-width:1024px){
     .input-medium {
         width: 71%;
-    }
-    
+    }    
     .tab .resume {
         display: none;            
     }
     .resume {
-        width: 30%;
+        width: 50%;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -459,12 +478,13 @@ input:focus::placeholder {
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        left: -26%;
-        top: 60px;
+        left: -29%;
     }
     #prevBtn .txt-back {
-        display: initial;
+        display: inline-block;
         margin: 0 10px;
+        color: #626773;
+        font-size: 14px;
     }
     .title-form img {
         display: none;
@@ -477,7 +497,7 @@ input:focus::placeholder {
         width: 150px;
     }
     .copyright {
-        font-size: 14px;
+        font-size: 14px;        
         color: #626773;
         position: absolute;
         bottom: 0;
@@ -515,6 +535,11 @@ input:focus::placeholder {
     .termo .text-termo {
         padding: 10px 20px;
     }
+    .link-term {
+        color: #266EB5 ;
+        margin-left: 5px;
+        
+    }
     .btnDownloadTerm {
         display: flex;
         justify-content: center;
@@ -525,5 +550,19 @@ input:focus::placeholder {
         cursor: pointer;
         color: #266EB5;
         margin-right: 24px;
+    }
+    .step-text {
+        position: absolute;
+        font-family: 'Montserrat' sans-serif;
+        justify-content: space-between;
+        display: flex;
+        top: 50px;
+        font-size: 14px;
+        width: 600px;
+        letter-spacing: 0.22px;
+        color: #B8BABF;
+    }
+    .setcolor {
+        color: #266EB5;
     }
 }
