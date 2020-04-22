@@ -31,17 +31,17 @@
                     <p>Plano Contratado</p>
                     <span>Standart</span>
                 </div>
-                <li>
-                    <div>
-                        <p>Preço Mensal</p>
-                        <span>R$ 44,90</span>
-                    </div>
-                </li>
+            <li>
+                <div>
+                    <p>Preço Mensal</p>
+                    <span>R$ 44,90</span>
+                </div>
+            </li>
             </li>
         </ul>
-        
+
     </div>
-    
+
     <div class="form-cadastro">
         <div class="steps">
             <span class="step"></span>
@@ -51,12 +51,15 @@
             <span class="step"></span>
         </div>
         <div class="step-text">
-            <span class="steptxt">1.Dados Pessoais  > </span>
-            <span class="steptxt">2.Dados Webcorpo  > </span>
-            <span class="steptxt">3.Endereço > </span>
-            <span class="steptxt">4.Pagamento</span>
+            <span class="steptxt">1 . Dados Pessoais</span>
+            <div class="arrow-right"></div>
+            <span class="steptxt">2 . Dados Webcorpo</span>
+            <div class="arrow-right"></div>
+            <span class="steptxt">3 . Endereço</span>
+            <div class="arrow-right"></div>
+            <span class="steptxt">4 . Pagamento</span>
         </div>
-        
+
         <form id="regForm" method="POST" action="http://uol.com.br">
             <div class="tab">
                 <div class="title-form">
@@ -67,31 +70,34 @@
                 </div>
                 <fieldset class="material">
                     <input type="text" id="name" placeholder="Qual seu nome?" oninput="this.className = ''"
-                    autocomplete="off" data-tipo="name" required>
+                        autocomplete="off" data-tipo="name" required>
                     <label id="labelName" for="name" value="nome">Nome</label>
                     <hr>
                 </fieldset>
                 <fieldset class="material">
                     <input type="text" id="email" placeholder="Seu e-mail?" oninput="this.className = ''"
-                    autocomplete="off" data-tipo="email" required>
+                        autocomplete="off" data-tipo="email" required>
                     <hr>
                     <label id="labelEmail" value="E-mail">E-mail</label>
                 </fieldset>
                 <fieldset class="material">
                     <input class="cpfcnpj" id="cpfcnpj" placeholder="CPF ou CNPJ?" oninput="this.className = ''"
-                    autocomplete=" off"  onKeyPress="MascaraGenerica(this, 'CPFCNPJ');" data-tipo="cpfcnpj" maxlength="18" required>
+                        autocomplete=" off" onKeyPress="MascaraGenerica(this, 'CPFCNPJ');" data-tipo="cpfcnpj"
+                        maxlength="18" required>
                     <hr>
                     <label id="labelCnpj" for="cpfcnpj" value="cpfcnpj">CPF/CNPJ</label>
                 </fieldset>
                 <fieldset class="material">
                     <input type="phone" id="phone" placeholder="Qual seu telefone?" oninput="this.className = ''"
-                    autocomplete=" off" onKeyPress="MascaraGenerica(this, 'TELEFONE');" data-tipo="phone" required >
+                        autocomplete=" off" onKeyPress="MascaraGenerica(this, 'TELEFONE');" data-tipo="phone" required>
                     <hr>
                     <label id="labelPhone" for="phone" value="telefone">Telefone</label>
                 </fieldset>
                 <div class="term">
-                    <input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2" data-tipo="term" required>
-                    <label for="styled-checkbox-2">Li e concordo com os <br><span class="link-term show">Termos de Uso da WebCorp</span></label>
+                    <input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2"
+                        data-tipo="term" required>
+                    <label for="styled-checkbox-2">Li e concordo com os <br><span class="link-term show">Termos de Uso
+                            da WebCorp</span></label>
                 </div>
             </div>
             <div class="tab">
@@ -101,23 +107,23 @@
                     </div>
                     <p>Vamos criar seu usuário e senha para acessar a WebCorp?</p>
                 </div>
-                
+
                 <fieldset class="material">
                     <input type="text" id="login" placeholder="Crie o seu usuário" oninput="this.className = ''"
-                    data-tipo="login" required>
+                        data-tipo="login" required>
                     <hr>
                     <label>Usuário</label>
                 </fieldset>
                 <fieldset class="material">
                     <input type="password" id="password" placeholder="Crie a sua senha" oninput="this.className = ''"
-                    autocomplete="off"required>
+                        autocomplete="off" required>
                     <hr>
                     <label id="labelPassword">Senha</label>
                     <img id="showpass" src="showpass.svg" alt="mostrar senha" onclick="showPass()">
                 </fieldset>
                 <fieldset class="material">
-                    <input type="password" id="confirmpass" placeholder="Confirme sua senha" oninput="this.className = ''"
-                    autocomplete=" off">
+                    <input type="password" id="confirmpass" placeholder="Confirme sua senha"
+                        oninput="this.className = ''" autocomplete=" off">
                     <hr>
                     <label id="labelConfirmpass">Confirmar senha</label>
                     <img id="showrepass" src="showpass.svg" alt="mostrar senha" onclick="showRepass()">
@@ -131,50 +137,48 @@
                     <p>Nos informe seu endereço de cobrança para continuarmos com a compra?</p>
                 </div>
                 <div class="forms-responsive">
-                    
+
                     <fieldset class="material">
                         <input name="cep" id="cep" placeholder="Qual seu CEP?" oninput="this.className = ''"
-                        autocomplete="off" onKeyPress="MascaraGenerica(this, 'CEP')" onblur="pesquisacep(this.value)"  data-tipo="cep"required>
+                            autocomplete="off" onKeyPress="MascaraGenerica(this, 'CEP')"
+                            onblur="pesquisacep(this.value)" data-tipo="cep" required>
                         <hr>
                         <label id="labelCep">CEP</label>
                     </fieldset>
                     <fieldset class="material">
-                        <input name="rua" id="rua" placeholder="Rua" oninput="this.className = ''" autocomplete="off" data-tipo="name">
+                        <input name="rua" id="rua" placeholder="Rua" oninput="this.className = ''" autocomplete="off"
+                            data-tipo="name">
                         <hr>
                         <label>Rua</label>
                     </fieldset>
                     <fieldset class="material input-small">
                         <input type="text" id="numero" placeholder="Número" oninput="this.className = ''"
-                        autocomplete=" off">
+                            autocomplete=" off">
                         <hr>
                         <label id="labelNumero">Número</label>
-                        
+
                     </fieldset>
                     <fieldset class="material input-medium">
-                        <input type="text" id="complemento" placeholder="Complemento" oninput="this.className = ''"
-                        >
+                        <input type="text" id="complemento" placeholder="Complemento" oninput="this.className = ''">
                         <hr>
                         <label id="labelComplemento">Complemento</label>
-                        
+
                     </fieldset>
                     <fieldset class="material">
-                        <input id="bairro" placeholder="Bairro" oninput="this.className = ''"
-                        autocomplete="off">
+                        <input id="bairro" placeholder="Bairro" oninput="this.className = ''" autocomplete="off">
                         <hr>
                         <label id="labelBairro">Bairro</label>
                     </fieldset>
                     <fieldset class="material input-medium">
-                        <input type="text" id="cidade" placeholder="Cidade" oninput="this.className = ''"
-                        >
+                        <input type="text" id="cidade" placeholder="Cidade" oninput="this.className = ''">
                         <hr>
                         <label id="labelCidade">Cidade</label>
                     </fieldset>
                     <fieldset class="material input-small">
-                        <input type="text" id="uf" placeholder="Estado" oninput="this.className = ''"
-                        >
+                        <input type="text" id="uf" placeholder="Estado" oninput="this.className = ''">
                         <hr>
                         <label id="labelUf">Estado</label>
-                        
+
                     </fieldset>
                 </div>
             </div>
@@ -184,7 +188,7 @@
                         <img src="logo.png" alt="Logo ConferenciaCorp">
                     </div>
                     <p>Para finalizar sua compra nos informe os dados do seu cartão</p>
-                    
+
                     <ul>
                         <li class="border-itens">
                             <span>Resumo da compra</span>
@@ -194,7 +198,7 @@
                                 <p>Data da Compra</p>
                                 <span> 12 de Março de 2020</span>
                             </div>
-                            
+
                         </li>
                         <li class="border-itens">
                             <div>
@@ -209,9 +213,9 @@
                     </ul>
                 </div>
                 <div class="card-wrapper"></div>
-                
+
                 <div class="form-container active">
-                    
+
                     <fieldset class="material">
                         <input placeholder="Número " type="tel" name="number">
                         <hr>
@@ -233,7 +237,7 @@
                         <label>CVV</label>
                     </fieldset>
                 </div>
-                
+
             </div>
             <div class="tab">
                 <div class="title-form">
@@ -248,40 +252,58 @@
                 <a class="prevBtn" type="button" id="prevBtn" onclick="nextPrev(-1)">
                     <img src="back.svg" alt="Logo" /> <span class="txt-back">Voltar</span>
                 </a>
-                <button class="btn-return btn-default" type="button" id="nextBtn" onclick="nextPrev(1)" >
+                <button class="btn-return btn-default" type="button" id="nextBtn" onclick="nextPrev(1)">
                     Proximo
                 </button>
-                </div>
-            </form>
-            <p class="copyright">©Copyright 2020 ConferenciaCorp. Todos os direitos reservados.</p>
-        </div>
-        
-        <div class="mask" role="dialog"></div>
-        <div class="modal-term" role="alert">
+            </div>
+        </form>
+        <p class="copyright">©Copyright 2020 ConferenciaCorp. Todos os direitos reservados.</p>
+    </div>
 
-            <button class="close" role="button">X</button>
-            <h1>Termos de Uso da WebCorp</h1>
-            <div class="termo">
-                <p class="text-termo">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pellentesque enim ac magna facilisis auctor. Sed eget enim non est fermentum convallis eget vel dolor. Aliquam ut dui ac quam placerat maximus vitae ut augue. Suspendisse pellentesque et sem non luctus. Vestibulum mauris massa, scelerisque a turpis a, commodo auctor lacus. Phasellus id magna a ligula viverra sodales. Sed tempor neque non malesuada vehicula. Nam a venenatis magna. Suspendisse ex nunc, dignissim ut molestie vel, viverra sed orci. Nam vitae metus convallis, sodales nibh nec, venenatis neque. Quisque nisi diam, molestie nec metus non, pharetra suscipit sapien. Duis fermentum consectetur velit id pulvinar. Morbi finibus in lacus sit amet accumsan. Mauris suscipit lorem lectus, at gravida nisl auctor non. Ut accumsan ex justo, sed consequat
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pellentesque enim ac magna facilisis auctor. Sed eget enim non est fermentum convallis eget vel dolor. Aliquam ut dui ac quam placerat maximus vitae ut augue. Suspendisse pellentesque et sem non luctus. Vestibulum mauris massa, scelerisque a turpis a, commodo auctor lacus. Phasellus id magna a ligula viverra sodales. Sed tempor neque non malesuada vehicula. Nam a venenatis magna. Suspendisse ex nunc, dignissim ut molestie vel, viverra sed orci. Nam vitae metus convallis, sodales nibh nec, venenatis neque. Quisque nisi diam, molestie nec metus non, pharetra suscipit sapien. Duis fermentum consectetur velit id pulvinar. Morbi finibus in lacus sit amet accumsan. Mauris suscipit lorem lectus, at gravida nisl auctor non. Ut accumsan ex justo, sed consequat
-                </p>
-                <div class="contentBtnTerm contentBtn">
-                    <a href="./logo.png" class="btnDownloadTerm" type="submit" id="btnDownloadTerm" download="Termo-de-Uso">Baixar Termos de Uso</a>
-                        
-                    <button class="btnAcceptTerm btn-default" type="button" id="btnAcceptTerm">
-                        Concordar
-                    </button>
-                </div>
-            </div>            
+    <div class="mask" role="dialog"></div>
+    <div class="modal-term" role="alert">
+
+        <span class="close" role="button"></span>
+        <h1>Termos de Uso da WebCorp</h1>
+        <div class="termo">
+            <p class="text-termo">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pellentesque enim ac magna facilisis
+                auctor. Sed eget enim non est fermentum convallis eget vel dolor. Aliquam ut dui ac quam placerat
+                maximus vitae ut augue. Suspendisse pellentesque et sem non luctus. Vestibulum mauris massa, scelerisque
+                a turpis a, commodo auctor lacus. Phasellus id magna a ligula viverra sodales. Sed tempor neque non
+                malesuada vehicula. Nam a venenatis magna. Suspendisse ex nunc, dignissim ut molestie vel, viverra sed
+                orci. Nam vitae metus convallis, sodales nibh nec, venenatis neque. Quisque nisi diam, molestie nec
+                metus non, pharetra suscipit sapien. Duis fermentum consectetur velit id pulvinar. Morbi finibus in
+                lacus sit amet accumsan. Mauris suscipit lorem lectus, at gravida nisl auctor non. Ut accumsan ex justo,
+                sed consequat
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pellentesque enim ac magna facilisis
+                auctor. Sed eget enim non est fermentum convallis eget vel dolor. Aliquam ut dui ac quam placerat
+                maximus vitae ut augue. Suspendisse pellentesque et sem non luctus. Vestibulum mauris massa, scelerisque
+                a turpis a, commodo auctor lacus. Phasellus id magna a ligula viverra sodales. Sed tempor neque non
+                malesuada vehicula. Nam a venenatis magna. Suspendisse ex nunc, dignissim ut molestie vel, viverra sed
+                orci. Nam vitae metus convallis, sodales nibh nec, venenatis neque. Quisque nisi diam, molestie nec
+                metus non, pharetra suscipit sapien. Duis fermentum consectetur velit id pulvinar. Morbi finibus in
+                lacus sit amet accumsan. Mauris suscipit lorem lectus, at gravida nisl auctor non. Ut accumsan ex justo,
+                sed consequat
+            </p>
+            <div class="contentBtnTerm contentBtn">
+                <a href="./logo.png" class="btnDownloadTerm" type="submit" id="btnDownloadTerm"
+                    download="Termo-de-Uso">Baixar Termos de Uso</a>
+
+                <button class="btnAcceptTerm btn-default" type="button" id="btnAcceptTerm">
+                    Concordar
+                </button>
+            </div>
         </div>
-    </body>
-    <script src="assets/js/card.js"></script>
-    <script>
-        new Card({
-            form: document.querySelector('form'),
-            container: '.card-wrapper'
-        });
-    </script>
-    <script src="assets/js/webcorp.js"></script>
-    </html>
+    </div>
+</body>
+<script src="assets/js/card.js"></script>
+<script>
+    new Card({
+        form: document.querySelector('form'),
+        container: '.card-wrapper'
+    });
+</script>
+<script src="assets/js/webcorp.js"></script>
+
+</html>
